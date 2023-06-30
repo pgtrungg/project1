@@ -8,6 +8,7 @@ import com.google.gson.JsonObject;
 import java.io.*;
 
 public class JsonToTxt {
+    private JsonToTxt(){}
     public static void convert(String jsonFilePath, String txtFilePath) throws IOException{
         Gson gson = new Gson();
         FileReader fileReader = new FileReader(jsonFilePath);

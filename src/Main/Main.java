@@ -78,7 +78,7 @@ public class Main {
 
                 ScanDomain domainScanner = new ScanDomain(apiKey, domain);
                 String responseScanDomain = domainScanner.getResponse();
-                String newFilePath3="Json_Report/DomainReport.json"
+                String newFilePath3="Json_Report/DomainReport.json";
                 FileWriter wr3 = new FileWriter(newFilePath3);
                 wr3.write(responseScanDomain);
                 wr3.close();
@@ -97,7 +97,7 @@ public class Main {
 
                 ScanIp ipScanner = new ScanIp(apiKey, ipAddress);
                 String responseScanIp = ipScanner.getResponse();
-                String newFilePath4="Json_Report/IpReport.json"
+                String newFilePath4="Json_Report/IpReport.json";
                 FileWriter wr4 = new FileWriter(newFilePath4);
                 wr4.write(responseScanIp);
                 wr4.close();
