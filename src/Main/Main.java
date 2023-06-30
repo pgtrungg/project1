@@ -31,20 +31,21 @@ public class Main {
 
 
 
-        switch (choice){
+        switch (choice) {
             case "1":
                 String filePath = "C:\\Users\\DELL\\Downloads\\ideaIC-2023.1.1.exe";
 
                 ScanFile fileScanner = new ScanFile(apiKey, filePath);
                 String responseScanFile = fileScanner.getResponse();
-                String newFilePath1="Json_Report/FileReport.json";
+                String newFilePath1 = "Json_Report/FileReport.json";
+                FileWriter wr1 = null;
                 try {
 
 
-                    FileWriter wr1 = new FileWriter(newFilePath1);
+                    wr1 = new FileWriter(newFilePath1);
+
                     wr1.write(responseScanFile);
                     wr1.write(responseScanFile);
-                    wr1.close();
 
 
                     JsonToTxt.convert(newFilePath1, "Results_txt/FileReport.txt");
@@ -56,14 +57,16 @@ public class Main {
                     TxtToPDF.convert("Results_txt/FileReport.txt", "Results_pdf/FileReport.pdf",
                             "Charts/FileChart.png");
                     break;
+                } catch (Exception e) {
+                } finally {
+                    wr1.close();
                 }
-                catch (Exception e){}
             case "2":
                 String url = "hxxp://www.malwaredomainlist.com/";
 
                 ScanUrl urlScanner = new ScanUrl(apiKey, url);
                 String responseScanUrl = urlScanner.getResponse();
-                String newFilePath2="Json_Report/UrlReport.json";
+                String newFilePath2 = "Json_Report/UrlReport.json";
 
                 FileWriter wr2 = new FileWriter(newFilePath2);
                 wr2.write(responseScanUrl);
@@ -83,7 +86,7 @@ public class Main {
 
                 ScanDomain domainScanner = new ScanDomain(apiKey, domain);
                 String responseScanDomain = domainScanner.getResponse();
-                String newFilePath3="Json_Report/DomainReport.json";
+                String newFilePath3 = "Json_Report/DomainReport.json";
                 FileWriter wr3 = new FileWriter(newFilePath3);
                 wr3.write(responseScanDomain);
                 wr3.close();
@@ -102,7 +105,7 @@ public class Main {
 
                 ScanIp ipScanner = new ScanIp(apiKey, ipAddress);
                 String responseScanIp = ipScanner.getResponse();
-                String newFilePath4="Json_Report/IpReport.json";
+                String newFilePath4 = "Json_Report/IpReport.json";
                 FileWriter wr4 = new FileWriter(newFilePath4);
                 wr4.write(responseScanIp);
                 wr4.close();
