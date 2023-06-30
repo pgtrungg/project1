@@ -49,6 +49,7 @@ public class Main {
                             "Charts/FileChart.png");
                 } catch (Exception e) {
                     System.out.println("Error occurred while creating/writing file: " + e.getMessage());
+                }
                 break;
             case "2":
                 String url = "hxxp://www.malwaredomainlist.com/";

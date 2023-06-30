@@ -2,9 +2,11 @@ package tools;
 
 import com.aspose.words.*;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.stream.Stream;
 
 public class TxtToPDF {
     public static void convert(String txtFilePath, String pdfFilePath, String imageFilePath) throws Exception {
@@ -47,7 +49,11 @@ public class TxtToPDF {
 
     private static String[] getTextLines(String txtFilePath) throws Exception {
         Path path = Paths.get(txtFilePath);
-        return Files.lines(path).toArray(String[]::new);
+        try (Stream<String> lines = Files.lines(path)) {
+            return lines.toArray(String[]::new);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
 
