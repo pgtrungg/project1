@@ -38,11 +38,10 @@ public class Main {
                 ScanFile fileScanner = new ScanFile(apiKey, filePath);
                 String responseScanFile = fileScanner.getResponse();
                 String newFilePath1 = "Json_Report/FileReport.json";
-                FileWriter wr1 = null;
                 try {
 
 
-                    wr1 = new FileWriter(newFilePath1);
+                    FileWriter wr1 = new FileWriter(newFilePath1);
 
                     wr1.write(responseScanFile);
                     wr1.write(responseScanFile);
@@ -58,8 +57,7 @@ public class Main {
                             "Charts/FileChart.png");
                     break;
                 } catch (Exception e) {
-                } finally {
-                    wr1.close();
+                    e.printStackTrace();
                 }
             case "2":
                 String url = "hxxp://www.malwaredomainlist.com/";
