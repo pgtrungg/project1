@@ -38,21 +38,26 @@ public class Main {
                 ScanFile fileScanner = new ScanFile(apiKey, filePath);
                 String responseScanFile = fileScanner.getResponse();
                 String newFilePath1="Json_Report/FileReport.json";
-
-                FileWriter wr1 = new FileWriter(newFilePath1);
-                wr1.write(responseScanFile);
-                wr1.close();
+                try {
 
 
-                JsonToTxt.convert(newFilePath1, "Results_txt/FileReport.txt");
+                    FileWriter wr1 = new FileWriter(newFilePath1);
+                    wr1.write(responseScanFile);
+                    wr1.write(responseScanFile);
+                    wr1.close();
 
-                JsonToCsv.convert(newFilePath1, "Results_csv/FileReport.csv");
 
-                GenGraph.generate("Results_csv/FileReport.csv", "Charts/FileChart.png");
+                    JsonToTxt.convert(newFilePath1, "Results_txt/FileReport.txt");
 
-                TxtToPDF.convert("Results_txt/FileReport.txt", "Results_pdf/FileReport.pdf",
-                        "Charts/FileChart.png");
-                break;
+                    JsonToCsv.convert(newFilePath1, "Results_csv/FileReport.csv");
+
+                    GenGraph.generate("Results_csv/FileReport.csv", "Charts/FileChart.png");
+
+                    TxtToPDF.convert("Results_txt/FileReport.txt", "Results_pdf/FileReport.pdf",
+                            "Charts/FileChart.png");
+                    break;
+                }
+                catch (Exception e){}
             case "2":
                 String url = "hxxp://www.malwaredomainlist.com/";
 
