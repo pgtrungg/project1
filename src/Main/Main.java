@@ -1,3 +1,5 @@
+package Main;
+
 import tools.GenGraph;
 import tools.JsonToCsv;
 import tools.JsonToTxt;
