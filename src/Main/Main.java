@@ -37,16 +37,16 @@ public class Main {
 
                 ScanFile fileScanner = new ScanFile(apiKey, filePath);
                 String responseScanFile = fileScanner.getResponse();
-                String newFilePath="Json_Report/FileReport.json";
+                String newFilePath1="Json_Report/FileReport.json";
 
-                FileWriter wr1 = new FileWriter(newFilePath);
+                FileWriter wr1 = new FileWriter(newFilePath1);
                 wr1.write(responseScanFile);
                 wr1.close();
 
 
-                JsonToTxt.convert(newFilePath, "Results_txt/FileReport.txt");
+                JsonToTxt.convert(newFilePath1, "Results_txt/FileReport.txt");
 
-                JsonToCsv.convert(newFilePath, "Results_csv/FileReport.csv");
+                JsonToCsv.convert(newFilePath1, "Results_csv/FileReport.csv");
 
                 GenGraph.generate("Results_csv/FileReport.csv", "Charts/FileChart.png");
 
@@ -58,14 +58,15 @@ public class Main {
 
                 ScanUrl urlScanner = new ScanUrl(apiKey, url);
                 String responseScanUrl = urlScanner.getResponse();
+                String newFilePath2="Json_Report/UrlReport.json";
 
-                FileWriter wr2 = new FileWriter("Json_Report/UrlReport.json");
+                FileWriter wr2 = new FileWriter(newFilePath2);
                 wr2.write(responseScanUrl);
                 wr2.close();
 
-                JsonToTxt.convert("Json_Report/UrlReport.json", "Results_txt/UrlReport.txt");
+                JsonToTxt.convert(newFilePath2, "Results_txt/UrlReport.txt");
 
-                JsonToCsv.convert("Json_Report/UrlReport.json", "Results_csv/UrlReport.csv");
+                JsonToCsv.convert(newFilePath2, "Results_csv/UrlReport.csv");
 
                 GenGraph.generate("Results_csv/UrlReport.csv", "Charts/UrlChart.png");
 
@@ -77,14 +78,14 @@ public class Main {
 
                 ScanDomain domainScanner = new ScanDomain(apiKey, domain);
                 String responseScanDomain = domainScanner.getResponse();
-
-                FileWriter wr3 = new FileWriter("Json_Report/DomainReport.json");
+                String newFilePath3="Json_Report/DomainReport.json"
+                FileWriter wr3 = new FileWriter(newFilePath3);
                 wr3.write(responseScanDomain);
                 wr3.close();
 
-                JsonToTxt.convert("Json_Report/DomainReport.json", "Results_txt/DomainReport.txt");
+                JsonToTxt.convert(newFilePath3, "Results_txt/DomainReport.txt");
 
-                JsonToCsv.convert("Json_Report/DomainReport.json", "Results_csv/DomainReport.csv");
+                JsonToCsv.convert(newFilePath3, "Results_csv/DomainReport.csv");
 
                 GenGraph.generate("Results_csv/DomainReport.csv", "Charts/DomainChart.png");
 
@@ -96,14 +97,14 @@ public class Main {
 
                 ScanIp ipScanner = new ScanIp(apiKey, ipAddress);
                 String responseScanIp = ipScanner.getResponse();
-
-                FileWriter wr4 = new FileWriter("Json_Report/IpReport.json");
+                String newFilePath4="Json_Report/IpReport.json"
+                FileWriter wr4 = new FileWriter(newFilePath4);
                 wr4.write(responseScanIp);
                 wr4.close();
 
-                JsonToTxt.convert("Json_Report/IpReport.json", "Results_txt/IpReport.txt");
+                JsonToTxt.convert(newFilePath4, "Results_txt/IpReport.txt");
 
-                JsonToCsv.convert("Json_Report/IpReport.json", "Results_csv/IpReport.csv");
+                JsonToCsv.convert(newFilePath4, "Results_csv/IpReport.csv");
 
                 GenGraph.generate("Results_csv/IpReport.csv", "Charts/IpChart.png");
 
