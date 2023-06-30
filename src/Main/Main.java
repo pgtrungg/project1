@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 import tools.GenGraph;
 import tools.JsonToCsv;
@@ -38,14 +38,16 @@ public class Main {
 
                 ScanFile fileScanner = new ScanFile(apiKey, filePath);
                 String responseScanFile = fileScanner.getResponse();
+                String newFilePath="Json_Report/FileReport.json";
 
-                FileWriter wr1 = new FileWriter("Json_Report/FileReport.json");
+                FileWriter wr1 = new FileWriter(newFilePath);
                 wr1.write(responseScanFile);
                 wr1.close();
 
-                JsonToTxt.convert("Json_Report/FileReport.json", "Results_txt/FileReport.txt");
 
-                JsonToCsv.convert("Json_Report/FileReport.json", "Results_csv/FileReport.csv");
+                JsonToTxt.convert(newFilePath, "Results_txt/FileReport.txt");
+
+                JsonToCsv.convert(newFilePath, "Results_csv/FileReport.csv");
 
                 GenGraph.generate("Results_csv/FileReport.csv", "Charts/FileChart.png");
 
