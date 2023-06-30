@@ -104,7 +104,7 @@ public class Main {
                 try (FileInputStream fis = new FileInputStream("config.properties")) {
                     properties.load(fis);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
 
                 String ipAddress = properties.getProperty("ipAddress");
