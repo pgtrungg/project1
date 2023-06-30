@@ -10,23 +10,23 @@ import java.io.*;
 public class JsonToTxt {
     public static void convert(String jsonFilePath, String txtFilePath) throws IOException {
         Gson gson = new Gson();
-        try (FileReader fileReader = new FileReader(jsonFilePath)) {
+        FileReader fileReader = new FileReader(jsonFilePath);
 
-            JsonObject jsonObject = gson.fromJson(fileReader, JsonObject.class);
+        JsonObject jsonObject = gson.fromJson(fileReader, JsonObject.class);
 
-            // Overall results
-            JsonObject statsObject = jsonObject
-                    .getAsJsonObject("data")
-                    .getAsJsonObject("attributes")
-                    .getAsJsonObject("last_analysis_stats");
+        // Overall results
+        JsonObject statsObject = jsonObject
+                .getAsJsonObject("data")
+                .getAsJsonObject("attributes")
+                .getAsJsonObject("last_analysis_stats");
 
-            // Detail results of different antivirus tools
-            JsonObject resultsObject = jsonObject
-                    .getAsJsonObject("data")
-                    .getAsJsonObject("attributes")
-                    .getAsJsonObject("last_analysis_results");
+        // Detail results of different antivirus tools
+        JsonObject resultsObject = jsonObject
+                .getAsJsonObject("data")
+                .getAsJsonObject("attributes")
+                .getAsJsonObject("last_analysis_results");
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(txtFilePath))) {
             for (String engineName : resultsObject.keySet()) {
                 JsonObject engineObject = resultsObject.getAsJsonObject(engineName);
                 JsonElement resultElement = engineObject.get("result");
@@ -35,8 +35,8 @@ public class JsonToTxt {
                 String categoryValue = categoryElement.toString();
                 writer.write("Engine name@@ " + engineName + ", Category@@ " + categoryValue + ", Result@@ " + resultValue + "\n");
             }
-            writer.close();
-        }catch (Exception e){
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
