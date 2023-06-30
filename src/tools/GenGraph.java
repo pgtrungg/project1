@@ -52,7 +52,7 @@ public class GenGraph {
             System.out.println("Chart generated successfully.");
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 }

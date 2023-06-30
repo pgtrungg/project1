@@ -47,13 +47,14 @@ public class TxtToPDF {
         doc.save(pdfFilePath);
     }
 
-    private static String[] getTextLines(String txtFilePath) throws Exception {
+    private static String[] getTextLines(String txtFilePath)  {
         Path path = Paths.get(txtFilePath);
         try (Stream<String> lines = Files.lines(path)) {
             return lines.toArray(String[]::new);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+        return new String[0];
     }
 }
 
