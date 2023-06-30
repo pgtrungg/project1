@@ -55,9 +55,11 @@ public class Main {
 
                     TxtToPDF.convert("Results_txt/FileReport.txt", "Results_pdf/FileReport.pdf",
                             "Charts/FileChart.png");
-                    break;
+                    wr1.close();
                 } catch (Exception e) {
                     e.printStackTrace();
+                }finally {
+                    break;
                 }
             case "2":
                 String url = "hxxp://www.malwaredomainlist.com/";
