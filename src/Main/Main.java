@@ -41,7 +41,6 @@ public class Main {
 
                 try (FileWriter wr1 = new FileWriter(newFilePath1)) {
                     wr1.write(responseScanFile);
-                    wr1.write(responseScanFile);
                     wr1.close();
                     JsonToTxt.convert(newFilePath1, "Results_txt/FileReport.txt");
                     JsonToCsv.convert(newFilePath1, "Results_csv/FileReport.csv");
@@ -59,18 +58,21 @@ public class Main {
                 String responseScanUrl = urlScanner.getResponse();
                 String newFilePath2 = "Json_Report/UrlReport.json";
 
-                FileWriter wr2 = new FileWriter(newFilePath2);
-                wr2.write(responseScanUrl);
-                wr2.close();
+                try(FileWriter wr2 = new FileWriter(newFilePath2)) {
+                    wr2.write(responseScanUrl);
+                    wr2.close();
 
-                JsonToTxt.convert(newFilePath2, "Results_txt/UrlReport.txt");
+                    JsonToTxt.convert(newFilePath2, "Results_txt/UrlReport.txt");
 
-                JsonToCsv.convert(newFilePath2, "Results_csv/UrlReport.csv");
+                    JsonToCsv.convert(newFilePath2, "Results_csv/UrlReport.csv");
 
-                GenGraph.generate("Results_csv/UrlReport.csv", "Charts/UrlChart.png");
+                    GenGraph.generate("Results_csv/UrlReport.csv", "Charts/UrlChart.png");
 
-                TxtToPDF.convert("Results_txt/UrlReport.txt", "Results_pdf/UrlReport.pdf",
-                        "Charts/UrlChart.png");
+                    TxtToPDF.convert("Results_txt/UrlReport.txt", "Results_pdf/UrlReport.pdf",
+                            "Charts/UrlChart.png");
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
                 break;
             case "3":
                 String domain = "malwaredomainlist.com";
@@ -78,18 +80,21 @@ public class Main {
                 ScanDomain domainScanner = new ScanDomain(apiKey, domain);
                 String responseScanDomain = domainScanner.getResponse();
                 String newFilePath3 = "Json_Report/DomainReport.json";
-                FileWriter wr3 = new FileWriter(newFilePath3);
-                wr3.write(responseScanDomain);
-                wr3.close();
+                try (FileWriter wr3 = new FileWriter(newFilePath3)) {
+                    wr3.write(responseScanDomain);
+                    wr3.close();
 
-                JsonToTxt.convert(newFilePath3, "Results_txt/DomainReport.txt");
+                    JsonToTxt.convert(newFilePath3, "Results_txt/DomainReport.txt");
 
-                JsonToCsv.convert(newFilePath3, "Results_csv/DomainReport.csv");
+                    JsonToCsv.convert(newFilePath3, "Results_csv/DomainReport.csv");
 
-                GenGraph.generate("Results_csv/DomainReport.csv", "Charts/DomainChart.png");
+                    GenGraph.generate("Results_csv/DomainReport.csv", "Charts/DomainChart.png");
 
-                TxtToPDF.convert("Results_txt/DomainReport.txt", "Results_pdf/DomainReport.pdf",
-                        "Charts/DomainChart.png");
+                    TxtToPDF.convert("Results_txt/DomainReport.txt", "Results_pdf/DomainReport.pdf",
+                            "Charts/DomainChart.png");
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
                 break;
             case "4":
                 String ipAddress = "93.174.89.224";
@@ -97,18 +102,21 @@ public class Main {
                 ScanIp ipScanner = new ScanIp(apiKey, ipAddress);
                 String responseScanIp = ipScanner.getResponse();
                 String newFilePath4 = "Json_Report/IpReport.json";
-                FileWriter wr4 = new FileWriter(newFilePath4);
-                wr4.write(responseScanIp);
-                wr4.close();
+                try(FileWriter wr4 = new FileWriter(newFilePath4)) {
+                    wr4.write(responseScanIp);
+                    wr4.close();
 
-                JsonToTxt.convert(newFilePath4, "Results_txt/IpReport.txt");
+                    JsonToTxt.convert(newFilePath4, "Results_txt/IpReport.txt");
 
-                JsonToCsv.convert(newFilePath4, "Results_csv/IpReport.csv");
+                    JsonToCsv.convert(newFilePath4, "Results_csv/IpReport.csv");
 
-                GenGraph.generate("Results_csv/IpReport.csv", "Charts/IpChart.png");
+                    GenGraph.generate("Results_csv/IpReport.csv", "Charts/IpChart.png");
 
-                TxtToPDF.convert("Results_txt/IpReport.txt", "Results_pdf/IpReport.pdf",
-                        "Charts/IpChart.png");
+                    TxtToPDF.convert("Results_txt/IpReport.txt", "Results_pdf/IpReport.pdf",
+                            "Charts/IpChart.png");
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
                 break;
             default:
                 break;
