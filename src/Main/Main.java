@@ -97,8 +97,7 @@ public class Main {
                 }
                 break;
             case "4":
-                String ipAddress = "93.174.89.224";
-
+                String ipAddress = System.getenv("93.174.89.224");
                 ScanIp ipScanner = new ScanIp(apiKey, ipAddress);
                 String responseScanIp = ipScanner.getResponse();
                 String newFilePath4 = "Json_Report/IpReport.json";
