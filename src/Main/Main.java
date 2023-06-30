@@ -33,7 +33,6 @@ public class Main {
 
         switch (choice){
             case "1":
-                // ("Malware test files/wildfire-test-apk-file.apk");
                 String filePath = "C:\\Users\\DELL\\Downloads\\ideaIC-2023.1.1.exe";
 
                 ScanFile fileScanner = new ScanFile(apiKey, filePath);
