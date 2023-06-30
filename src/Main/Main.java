@@ -48,8 +48,7 @@ public class Main {
                     TxtToPDF.convert("Results_txt/FileReport.txt", "Results_pdf/FileReport.pdf",
                             "Charts/FileChart.png");
                 } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                    System.out.println("Error occurred while creating/writing file: " + e.getMessage());
                 break;
             case "2":
                 String url = "hxxp://www.malwaredomainlist.com/";
@@ -71,7 +70,7 @@ public class Main {
                     TxtToPDF.convert("Results_txt/UrlReport.txt", "Results_pdf/UrlReport.pdf",
                             "Charts/UrlChart.png");
                 } catch (Exception e){
-                    e.printStackTrace();
+                    System.out.println("Error occurred while creating/writing file: " + e.getMessage());
                 }
                 break;
             case "3":
@@ -93,7 +92,7 @@ public class Main {
                     TxtToPDF.convert("Results_txt/DomainReport.txt", "Results_pdf/DomainReport.pdf",
                             "Charts/DomainChart.png");
                 }catch (Exception e){
-                    e.printStackTrace();
+                    System.out.println("Error occurred while creating/writing file: " + e.getMessage());
                 }
                 break;
             case "4":
@@ -115,7 +114,7 @@ public class Main {
                     TxtToPDF.convert("Results_txt/IpReport.txt", "Results_pdf/IpReport.pdf",
                             "Charts/IpChart.png");
                 }catch (Exception e){
-                    e.printStackTrace();
+                    System.out.println("Error occurred while creating/writing file: " + e.getMessage());
                 }
                 break;
             default:

@@ -35,7 +35,6 @@ public class JsonToTxt {
                 String categoryValue = categoryElement.toString();
                 writer.write("Engine name@@ " + engineName + ", Category@@ " + categoryValue + ", Result@@ " + resultValue + "\n");
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
