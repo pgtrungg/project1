@@ -49,7 +49,8 @@ public class GenGraph {
             File chartFile = new File(chartFilePath);
 
             ChartUtils.saveChartAsJPEG(chartFile, barChart, 800, 600);
-            System.out.println("Chart generated successfully.");
+
+            System.out.println("Summary chart is generated successfully.");
 
         } catch (IOException e) {
             System.out.println(e.getMessage());

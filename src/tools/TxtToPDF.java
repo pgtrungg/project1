@@ -9,16 +9,22 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 public class TxtToPDF {
-    public static void convert(String txtFilePath, String pdfFilePath, String imageFilePath) throws Exception {
+    public static void convert(String txtFilePath, String txtInfoFilePath, String pdfFilePath, String imageFilePath) throws Exception {
         Document doc = new Document();
         DocumentBuilder builder = new DocumentBuilder(doc);
 
         String[] lines = getTextLines(txtFilePath);
-
-        Table table = builder.startTable();
+        String[] info = getTextLines(txtInfoFilePath);
 
         builder.insertImage(imageFilePath);
 
+        for (int i = 0; i < info.length; i++) {
+            String infoLine = info[i];
+            builder.writeln(infoLine);
+        }
+        builder.writeln();
+
+        Table table = builder.startTable();
         // Add table headers
         builder.insertCell();
         builder.write("Tool");
@@ -29,7 +35,8 @@ public class TxtToPDF {
         builder.endRow();
 
         // Add table data
-        for (String line : lines) {
+        for (int i = 1; i < lines.length; i++) {
+            String line = lines[i];
             String[] parts = line.split(", ");
 
             builder.insertCell();
@@ -44,6 +51,30 @@ public class TxtToPDF {
             builder.endRow();
         }
         builder.endTable();
+
+        doc.save(pdfFilePath);
+    }
+
+    public static void getInfoReport(String txtFilePath, String pdfFilePath) throws Exception {
+        Document doc = new Document();
+        DocumentBuilder builder = new DocumentBuilder(doc);
+
+        String[] lines = getTextLines(txtFilePath);
+
+        for (int i = 0; i<3; i++){
+            builder.writeln();
+        }
+
+        for (int i = 0; i<3; i++){
+            builder.writeln();
+        }
+
+        // Add table data
+        for (int i = 0; i < lines.length; i++) {
+            String line = lines[i];
+            builder.writeln(line);
+        }
+
         doc.save(pdfFilePath);
     }
 
@@ -57,4 +88,3 @@ public class TxtToPDF {
         return new String[0];
     }
 }
-

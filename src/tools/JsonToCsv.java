@@ -25,7 +25,7 @@ public class JsonToCsv{
                 String result = toolData.get("result").toString();
                 writer.write(toolName + "," + category + "," + result + "\n");
         }
-            System.out.println("CSV file created successfully.");
+            System.out.println("CSV Report file is created successfully.");
         } catch (IOException e) {
             System.out.println("Error occurred while creating/writing to the CSV file: " + e.getMessage());
         }
