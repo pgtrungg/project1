@@ -29,7 +29,6 @@ public class Main {
             return responseCode == HttpURLConnection.HTTP_OK;
 
         } catch (IOException e) {
-            System.out.print("");
         }
         return false;
     }
