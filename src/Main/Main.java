@@ -29,7 +29,7 @@ public class Main {
             return responseCode == HttpURLConnection.HTTP_OK;
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.print("");
         }
         return false;
     }
