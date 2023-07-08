@@ -1,12 +1,59 @@
 reputation: 0
-last_analysis_date: 2023-04-22 18:26:24
-last_modification_date: 2023-04-22 18:31:33
-whois: See more details if necessary in json_report/IpReport.json
-whois_date: 2022-09-29 00:25:25
-tags: ["private"]
-network: No data
-asn: No data
-as_owner: No data
-regional_internet_registry: No data
-country: No data
-continent: No data
+last_analysis_date: 2023-07-03 05:43:43
+last_modification_date: 2023-07-04 15:04:39
+whois:
+	inetnum: 144.24.0.0 - 144.24.255.255
+	netname: ORACLE-UK
+	descr: Oracle Corp UK Ltd
+	descr: Oracle Parkway Thames Valley Park 550
+	descr: Reading, RG6 1RA
+	country: GB
+	org: ORG-OSA29-RIPE
+	geoloc: 51.522373 -0.629251
+	admin-c: DM12756-RIPE
+	tech-c: DM12756-RIPE
+	status: LEGACY
+	mnt-by: ORCL-MNT
+	mnt-lower: ORCL-MNT
+	mnt-routes: ORCL-MNT
+	created: 2003-12-09T13:47:05Z
+	last-modified: 2019-12-04T13:13:46Z
+	source: RIPE
+	organisation: ORG-OSA29-RIPE
+	org-name: Oracle Svenska AB
+	country: SE
+	org-type: LIR
+	address: R�sundav�gen 4
+	 Box 1429
+	address: 169 57
+	address: Solna
+	address: SWEDEN
+	phone: +4684773376
+	fax-no: +4684773376
+	abuse-c: AR17199-RIPE
+	mnt-ref: RIPE-NCC-HM-MNT
+	mnt-ref: ORCL-MNT
+	mnt-by: RIPE-NCC-HM-MNT
+	mnt-by: ORCL-MNT
+	created: 2010-12-02T11:14:19Z
+	last-modified: 2020-12-16T12:47:27Z
+	source: RIPE # Filtered
+	person: Domain Administrator
+	address: 500 Oracle Parkway, M/S 501ip3
+	address: Redwood Shores, CA,
+	address: 94065
+	address: US
+	phone: +1.6505062220
+	nic-hdl: DM12756-RIPE
+	mnt-by: ORCL-MNT
+	created: 2014-06-09T11:09:41Z
+	last-modified: 2014-06-09T11:09:41Z
+	source: RIPE
+whois_date: 2023-06-19 22:24:48
+tags: ["tor"]
+network: "144.24.0.0/16"
+asn: 31898
+as_owner: "ORACLE-BMC-31898"
+regional_internet_registry: "RIPE NCC"
+country: "FR"
+continent: "EU"
