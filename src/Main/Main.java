@@ -9,27 +9,23 @@ import scanner.ScanFile;
 import scanner.ScanIp;
 import scanner.ScanUrl;
 
-import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
 public class Main {
-    private static boolean testApiConnection(String apiUrl, String apiKey) {
+
+    private static boolean testApiConnection(String apiKey) {
         try {
-            URL url = new URL(apiUrl);
+            URL url = new URL("https://www.virustotal.com/api/v3/users/current" );
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("x-apikey", apiKey);
-
             int responseCode = connection.getResponseCode();
             return responseCode == HttpURLConnection.HTTP_OK;
-
-        } catch (IOException e) {
-        }
+        } catch (IOException e) {}
         return false;
     }
     private static void showMenu(){
@@ -47,8 +43,8 @@ public class Main {
 
         System.out.println("Input your VirusTotal API key for more options:");
         String apiKey = sc.next();
-        while (!testApiConnection("https://www.virustotal.com/api/v3/ip_addresses/192.168.1.1",apiKey)){
-            System.out.println("Invalid , please input your VirusTotal API key again:");
+        while (!testApiConnection(apiKey)){
+            System.out.println("Wrong API key , please input your VirusTotal API key again:");
             apiKey = sc.next();
         }
         showMenu();
